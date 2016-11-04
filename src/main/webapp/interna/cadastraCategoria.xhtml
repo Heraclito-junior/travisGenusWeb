@@ -1,0 +1,46 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Cadastro Categoria</title>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form>
+			<h1>Nova Categoria</h1>
+			
+			<h:messages />
+			<fieldset>
+				<p>Nome:</p>
+				<p><h:inputText value="#{categoriaMB.categoria.nome}"
+					required="true" requiredMessage="Nome obrigatório" />
+				</p>		
+				
+				
+				
+				<h:commandButton action="#{categoriaMB.cadastrar}" 
+					value="Cadastrar" />
+					
+					
+					
+				
+			</fieldset>
+		</h:form>
+		<h:form>		
+			
+			<fieldset>
+				
+				
+				<h:commandButton action="#{categoriaMB.listar}" value="Visualizar Categorias" />
+				<h:commandButton action="#{menuMB.VoltarMenu}" value="Voltar ao Menu" />
+				
+				
+				
+				
+			</fieldset>
+		</h:form>
+	</ui:define>
+</ui:composition>

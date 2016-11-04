@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Cadastrar Fornecedor</title>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		
+			<h1>Novo Fornecedor</h1>
+			
+			<h:messages />
+			<fieldset>
+			<h:form>
+				
+				
+				
+				<p>Nome:</p>
+				<p><h:inputText value="#{fornecedorMB.nome}"
+					required="true" requiredMessage="Nome obrigatório" />
+				</p>
+				
+				
+				
+				
+				
+				
+				<p><h:commandButton action="#{fornecedorMB.cadastrar}" 
+					value="Cadastrar" /></p>
+					
+			
+		</h:form>
+		<h:form>		
+			
+		
+				
+				
+				<h:commandButton action="#{menuMB.VoltarMenu}" value="Voltar ao Menu" />
+
+			
+		</h:form>
+		
+		</fieldset>
+	</ui:define>
+</ui:composition>

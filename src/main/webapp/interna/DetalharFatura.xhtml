@@ -1,0 +1,58 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Detalhes Fatura</title>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h1>Detalhar Fatura</h1>
+		
+			<h:form>
+			
+			
+			<h:messages />
+				
+					<p>ID da Fatura</p>
+					<p><h:inputText value="#{faturaContemMB.idFatura}"
+						required="true" requiredMessage="ID da fatura obrigatório" />
+					</p>		
+					
+					
+					
+					<h:commandButton action="#{faturaContemMB.filtrar}" 
+						value="filtrar" />
+				
+			</h:form>
+		<p>Valor Total</p>
+		<h:outputText value="#{faturaContemMB.retornaPreco().valorTotal}" />
+		
+		
+		
+		<h:dataTable value="#{faturaContemMB.listaFaturaContem}" var="c">
+			<h:column>
+				<f:facet name="header">Nome Produto</f:facet>
+				<h:outputText value="#{c.produtofaturaid.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Quantidade</f:facet>
+				<h:outputText value="#{c.quantidadeFatura}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Preço</f:facet>
+				<h:outputText value="#{c.precoNaHora}" />
+			</h:column>
+			
+			
+		</h:dataTable>
+		
+		<h:form>
+			<h:commandButton action="#{vendaContemMB.voltar()}" 
+				value="Voltar"/>
+		</h:form>
+		
+	</ui:define>
+</ui:composition>

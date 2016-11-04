@@ -1,0 +1,48 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Funcionarios</title>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h1>Lista de Funcionarios</h1>
+		
+		<h:dataTable value="#{funcionarioMB.listaFuncionario}" var="c">
+			<h:column>
+				<f:facet name="header">ID</f:facet>
+				<h:outputText value="#{c.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">nome</f:facet>
+				<h:outputText value="#{c.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Endereço</f:facet>
+				<h:outputText value="#{c.endereco}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Telefone</f:facet>
+				<h:outputText value="#{c.telefone}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Tipo de Funcionario</f:facet>
+				<h:outputText value="#{c.tipoFuncionario}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Ativo</f:facet>
+				<h:outputText value="#{c.ativo}" />
+			</h:column>
+			
+		</h:dataTable>
+		
+		<h:form>
+			<h:commandButton action="#{menuMB.VoltarMenu()}" 
+				value="Voltar"/>
+		</h:form>
+		
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,65 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Alterar Produto</title>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		<h:form>
+			<h1>Alterar Produto</h1>
+			
+			<h:messages />
+			<fieldset>
+			
+				<p>Nome Atual:</p>
+				<p><h:inputText value="#{produtoMB.produtoNA}"
+					required="true" requiredMessage="Nome atual obrigatório" />
+				</p>
+				
+				
+				<p>Novo Nome:</p>
+				<p><h:inputText value="#{produtoMB.produtoN}"
+					required="false" requiredMessage="Nome obrigatório" />
+				</p>
+				
+				<p>Preco:</p>
+				
+				<p><h:inputText value="#{produtoMB.produtoP}"
+				
+					required="false" requiredMessage="Nome obrigatório" />
+					<h:selectBooleanCheckbox id="remember" value="#{produtoMB.mudarpreco}" />Mudar Preço Produto
+				</p>
+				
+				
+				<p>Categoria:</p>
+				<p><h:inputText value="#{produtoMB.nomeCategoria}"
+					required="false" requiredMessage="Nome obrigatório" />
+				</p>		
+				
+					
+				
+				
+				
+				
+				
+				<p><h:commandButton action="#{produtoMB.alterar}" 
+					value="Alterar" /></p>
+					
+			</fieldset>
+		</h:form>
+		
+		<h:form>		
+			
+		
+				
+				
+				<h:commandButton action="#{menuMB.VoltarMenu}" value="Voltar ao Menu" />
+
+			
+		</h:form>
+	</ui:define>
+</ui:composition>

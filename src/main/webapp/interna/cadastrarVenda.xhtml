@@ -1,0 +1,176 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Nova Venda</title>
+	</ui:define>
+	
+	
+
+	<ui:define name="conteudo">
+	<h:outputStylesheet library="css" name="venda-style.css" />
+	<h1>Nova Venda</h1>
+	<br />
+	<h2>Carrinho</h2>
+	<h:dataTable value="#{vendaMB.tabelaVenda}" var="v"
+			styleClass="venda-table"
+    		headerClass="venda-table-header"
+    		rowClasses="venda-table-odd-row,venda-table-even-row"
+    		>
+
+    		<h:column>
+
+    			<f:facet name="header">Nome do produto</f:facet>
+    			#{v.nome}
+
+    		</h:column>
+
+    		<h:column>
+
+    			<f:facet name="header">Preço do produto</f:facet>
+    			#{v.preco}
+
+    		</h:column>
+
+    		<h:column>
+
+    			<f:facet name="header">Quantidade de produto</f:facet>
+    			#{v.quantidade}
+
+    		</h:column>
+
+    		<h:column>
+
+    			<f:facet name="header">Custo do Produto</f:facet>
+    			#{v.total}
+
+    		</h:column>
+
+    		</h:dataTable>
+		<h:form>
+			
+			
+			<h:messages />
+			
+			<h:form>
+			<h2>Produto</h2>
+    		<table>
+    		<tr>
+    			<td>Nome do Produto :</td>
+    			<td><h:inputText size="10" value="#{vendaMB.nomeProdCarrinho}" required="true" requiredMessage="Nome Obrigatorio" /></td>
+    		</tr>
+    		<tr>
+    			<td>Quantidade :</td>
+    			<td><h:inputText size="10" value="#{vendaMB.quntProdCarrinho}"/></td>
+    		</tr>
+    		
+    		</table>
+    		
+    		<tr>
+    			<h:commandButton value="Addicionar ao Carrinho" action="#{vendaMB.adicionarAoCarrinho()}" />
+    		<h:commandButton action="#{vendaMB.remover()}" 
+					value="Remover do Carrinho" />
+    		</tr>
+
+    		
+    		</h:form>
+    		
+    		
+
+			
+			
+			<fieldset>
+				<p>Nome do produto:</p>
+				<p><h:inputText value="#{vendaMB.nomeProdCarrinho}"
+				
+					required="true" requiredMessage="Nome obrigatório" />
+					
+				</p>
+				
+				<p>quantidade:</p>
+				<p>
+					<h:inputText value="#{vendaMB.quntProdCarrinho}">
+						
+					</h:inputText>
+				</p>
+				
+				
+				<p><h:commandButton action="#{vendaMB.adicionarAoCarrinho()}" 
+					value="Adicionar ao Carrinho" /></p>
+				<p><h:commandButton action="#{vendaMB.remover()}" 
+					value="Remover do Carrinho" /></p>
+			
+					
+				
+   		 </fieldset>
+   		 
+   		 
+   		 
+	</h:form>
+	
+   		 	<h:form>
+			<h:commandButton action="#{vendaMB.listaProdutos()}" 
+				value="Lista De Produtos"/>
+			</h:form>
+			
+			
+	<h:form>				
+			
+			
+			
+    		
+    		
+    		
+    		
+    		
+    		
+			
+			
+			
+			
+			
+			
+			
+			
+			<fieldset>
+			
+			<p>total:
+			<h:outputLabel id="usernameLabel"
+                       value="#{vendaMB.total} " />
+            </p>
+           	
+				<p>CPF do cliente:</p>
+				<p><h:inputText value="#{vendaMB.idClientela}"
+					required="true" requiredMessage="CPF obrigatório" />
+					
+				</p>
+				
+				<p>Tipo de pagamento:</p>
+				<h:selectOneMenu value="#{vendaMB.nVenda.tipoDesconto}">
+				   <f:selectItem itemValue="a Vista" itemLabel="a Vista" />
+				   <f:selectItem itemValue="Crédito" itemLabel="Crédito" />
+				   <f:selectItem itemValue="Debito" itemLabel="Debito" />
+				   <f:selectItem itemValue="Cheque" itemLabel="Cheque" />							
+				</h:selectOneMenu>
+				
+				
+				<p><h:commandButton action="#{vendaMB.finalizarAsCompras}" 
+					value="Finalizar Venda" /></p>
+					<h:form>		
+			
+		
+				
+				
+				<h:commandButton action="#{vendaMB.voltar()}" value="Voltar ao Menu" />
+
+			
+		</h:form>
+					
+			</fieldset>
+</h:form>
+
+	</ui:define>
+</ui:composition>

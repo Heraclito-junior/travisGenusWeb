@@ -1,0 +1,54 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	template="/include/template.xhtml">
+	
+	<ui:define name="titulo">
+		<title>Cliente</title>
+	</ui:define>
+
+	<ui:define name="conteudo">
+		
+			<h1>Novo Cliente</h1>
+			
+			<h:messages />
+			<fieldset>
+			<h:form>
+				<p>CPF:</p>
+				<p>
+					<h:inputText value="#{clienteMB.cpf}"
+						minlength="11"
+						validatorMessage="Número de CPF inválido">
+						<f:validateRegex pattern="[0-9]+" />
+					</h:inputText>
+				</p>
+				
+				
+				<p>Nome:</p>
+				<p><h:inputText value="#{clienteMB.nome}"
+					required="true" requiredMessage="Nome obrigatório" />
+				</p>
+				
+				
+				
+				
+				
+				
+				<p><h:commandButton action="#{clienteMB.cadastrar}" 
+					value="Cadastrar" /></p>
+					
+			
+		</h:form>
+		<h:form>		
+			
+		
+				
+				
+				<h:commandButton action="#{menuMB.VoltarMenu}" value="Voltar ao Menu" />
+
+			
+		</h:form>
+		</fieldset>
+	</ui:define>
+</ui:composition>
